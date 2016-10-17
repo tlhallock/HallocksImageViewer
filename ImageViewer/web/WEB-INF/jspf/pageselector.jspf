@@ -1,0 +1,85 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="org.hallock.image.LinksManager"%>
+<%@page import="org.hallock.images.Registry"%>
+<%@page import="org.hallock.image.ImagePath"%>
+<%@page import="org.hallock.image.ViewingArgs"%>
+<%@ page pageEncoding="UTF-8" %>
+
+        <div class="main">
+            <div class="pageselector">
+                <% if (data.getNumberOfPages() < Registry.getRegistry().getSettings().getMaxPagesAtOnce()) {
+                        for (int i = 0; i < data.getNumberOfPages(); i++) {
+                            if (i == args.getPage()) {
+                %>
+                <div class="pagelink"><%=String.valueOf(i + 1)%></div>
+                    <%
+                    } else {
+                    %>
+                    <div class="pagelink"><a href="<%=LinksManager.getFolderLink(request, args.getNewPageArgs(i))%>"><%=String.valueOf(i + 1)%></a></div>
+                    <%      }
+                        }
+                    } else {%>
+
+                <!-- first -->
+                <div class="pagelink">
+                    <% if (args.getPage() > 0) {%>
+                    <a href="<%=LinksManager.getFolderLink(request, args.getNewPageArgs(0))%>">first</a>
+                    <% } else { %>
+                    first
+                    <% } %>
+                </div>
+
+                <!-- prev 5 -->
+                <div class="pagelink">
+                    <% if (args.getPage() > 0) {%>
+                    <a href="<%=LinksManager.getFolderLink(request, args.getNewPageArgs(Math.max(0, args.getPage() - 5)))%>">back five</a>
+                    <% } else { %>
+                    back five
+                    <% } %>
+                </div>
+
+                <!-- prev 1 -->
+                <div class="pagelink">
+                    <% if (args.getPage() > 0) {%>
+                    <a href="<%=LinksManager.getFolderLink(request, args.getNewPageArgs(args.getPage() - 1))%>">previous</a>
+                    <% } else { %>
+                    previous
+                    <% }%>
+                </div>
+
+                <div class="pagelink"><%=args.getPage() + 1%> of <%=data.getNumberOfPages()%></div>
+
+
+                <!-- next 1 -->
+                <div class="pagelink">
+                    <% if (args.getPage() + 1 < data.getNumberOfPages()) {%>
+                    <a href="<%=LinksManager.getFolderLink(request, args.getNewPageArgs(args.getPage() + 1))%>">next</a>
+                    <% } else { %>
+                    next
+                    <% } %>
+                </div>
+
+
+                <!-- next 5 -->
+                <div class="pagelink">
+                    <% if (args.getPage() + 1 < data.getNumberOfPages()) {%>
+                    <a href="<%=LinksManager.getFolderLink(request, args.getNewPageArgs(Math.min(data.getNumberOfPages() - 1, args.getPage() + 5)))%>">skip five</a>
+                    <% } else { %>
+                    skip five
+                    <% } %>
+                </div>
+
+
+                <!-- last -->
+                <div class="pagelink">
+                    <% if (args.getPage() + 1 < data.getNumberOfPages()) {%>
+                    <a href="<%=LinksManager.getFolderLink(request, args.getNewPageArgs(data.getNumberOfPages() - 1))%>">last</a>
+                    <% } else { %>
+                    last
+                    <% } %>
+                </div>
+                <%} %>
+                <span class="pageend"></span>
+            </div>
+        </div>
+                

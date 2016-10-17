@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/java/org/hallock/image/DaContextListener.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>56</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/ImagePath.java</file>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/web/jsp/imageview.jsp</file>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/LinksManager.java</file>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/web/css/style.css</file>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/DbInterface.java</file>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/ImagePageData.java</file>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/DaContextListener.java</file>
+            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/web/jsp/folderview.jsp</file>
+        </group>
+    </open-files>
+</project-private>

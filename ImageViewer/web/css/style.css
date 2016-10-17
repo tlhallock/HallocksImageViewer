@@ -1,0 +1,101 @@
+body {
+	background-color: beige;
+}
+
+.main {
+    background-color: darkgray;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.icontable {
+	width: 100%;
+	background-color: darkgray;
+}
+
+.iconrow {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+/*	margin-bottom: 20px; */
+/*	background-color: white; */
+}
+
+.iconrow > .iconcolumn {
+	display: table-cell;
+/*	border: 1px dotted red; */
+	width: 1%;
+/*	background-color: black; */
+}
+
+
+
+
+.icondiv {
+	display: flex;
+	align-items: center; /* align vertical */
+        margin: 10px;
+	
+	background-color: darkgray;
+	height: 100%;
+}
+
+
+.label {
+	margin-left: 10px;
+	/* font-size: 250%; */
+}
+
+.iconimg {
+/*	max-width: 300px;
+        min-width: 300px;
+	max-height: 300px; */
+	width: auto;
+	max-width: 300px;
+	height: 150px;
+}
+
+.imgview {
+    width: 100%;
+    height: auto;
+}
+
+.pagelink {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pageselector {
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+}
+
+.pagelink {
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1
+}
+.pageend {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}

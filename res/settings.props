@@ -1,0 +1,10 @@
+#here is a comment
+#Sun Oct 16 10:13:32 MDT 2016
+port=80
+hostname=localhost
+db.table=images
+db.user=imageuser
+url.location=urls.props
+db.pass=imagepass
+default.rows=10
+default.cols=4

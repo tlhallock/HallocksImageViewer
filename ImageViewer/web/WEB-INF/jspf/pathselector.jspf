@@ -1,0 +1,19 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="org.hallock.image.LinksManager"%>
+<%@page import="org.hallock.image.ImagePath"%>
+<%@page import="org.hallock.image.ViewingArgs"%>
+<%@ page pageEncoding="UTF-8" %>
+
+        <div class="main">
+            <div>
+                <%
+                    ImagePath path = args.getPath();
+                    for (int i=0;i<path.size()-1;i++)
+                    {
+                        ViewingArgs.FolderArgs newArgs = new ViewingArgs.FolderArgs(args);
+                        newArgs.setPath(path.getSubPath(i));
+                        %><a href="<%=LinksManager.getFolderLink(request, newArgs)%>"><%=path.getPathName(i)%></a>/<%
+                    }
+                %><%=path.getPathName(path.size()-1)%>
+            </div>
+        </div>
