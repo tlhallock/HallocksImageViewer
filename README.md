@@ -19,3 +19,25 @@ after that, you will need to run the script redeployed.sh after every time you r
 before you run the redeployed.sh, also make sure to changed the ip address if it has changed.
 (Right now I have it in the home folder under otherLibs/.)
 just do ./otherLibs/redeplyed.sh at the command line.
+
+
+
+
+
+some of the TODOs, in no random order:
+    
+        // remove hard coded paths
+        // clean up/comment
+        // slideshow
+        // time and by folder
+        // users to delete
+        // comments
+        // people
+        // favorites
+        // captions
+        // rows/columns
+        // adjust image size: both by adding a cached cropped images directory and make sure the images are actually the right size in style.css
+        // flip/rotate
+        // search
+        // multiple languages, for your parents
+        // video audio
