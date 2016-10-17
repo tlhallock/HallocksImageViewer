@@ -28,18 +28,34 @@ some of the TODOs, in no random order:
 
 
 remove hard coded paths
+
 use a connection pool
+
 clean up/comment
+
 slideshow
+
 time and by folder
+
 users to delete
+
 comments
+
 people
+
 favorites
+
 captions
+
 rows/columns
+
 adjust image size: both by adding a cached cropped images directory and make sure the images are actually the right size in style.css
+
+
 flip/rotate
+
 search
+
 multiple languages, for your parents
+
 video audio
