@@ -16,5 +16,6 @@ in order to run this on a server the first time, you need to create the database
 
 
 after that, you will need to run the script redeployed.sh after every time you redeploy the jar.
+before you run the redeployed.sh, also make sure to changed the ip address if it has changed.
 (Right now I have it in the home folder under otherLibs/.)
 just do ./otherLibs/redeplyed.sh at the command line.
