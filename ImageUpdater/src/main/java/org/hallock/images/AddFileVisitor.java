@@ -34,18 +34,18 @@ public class AddFileVisitor extends SimpleFileVisitor<Path>
 		{
 			System.out.println("Visiting " + file);
 			ImageInfo info = ImageInfo.readInitialImageInfo(root, file);
-			Long lastModified = Database.getFileModificationTime(conn, info);
+			Long lastModified = ImageSynchronization.getFileModificationTime(conn, info);
 			if (lastModified == null)
 			{
 				ImageInfo.readRemainingImageInfo(root, file, info);
-				Database.insertImage(conn, info);
+				ImageSynchronization.insertImage(conn, info);
 			}
 			else if (lastModified < info.getModifiedTime())
 			{
 				System.out.println("db modified: " + new Date(lastModified));
 				System.out.println("fs modified: " + new Date(info.getModifiedTime()));
 				ImageInfo.readRemainingImageInfo(root, file, info);
-				Database.updateImage(conn, info);
+				ImageSynchronization.updateImage(conn, info);
 			}
 		} catch (ImageReadException e)
 		{

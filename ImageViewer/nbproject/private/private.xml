@@ -11,15 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/ImagePath.java</file>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/web/jsp/imageview.jsp</file>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/LinksManager.java</file>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/web/css/style.css</file>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/DbInterface.java</file>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/ImagePageData.java</file>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/src/java/org/hallock/image/DaContextListener.java</file>
-            <file>file:/home/thallock/Documents/Source/hosting/ImageViewer/web/jsp/folderview.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

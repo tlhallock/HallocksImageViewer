@@ -42,9 +42,6 @@ public class InitializationArgs {
             }
         }
 
-        if (settingsFile == null) {
-            throw new NullPointerException("No settings file!!!!");
-        }
         if (action == null) {
             throw new NullPointerException("No action!!!!");
         }
