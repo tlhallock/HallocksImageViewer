@@ -7,6 +7,8 @@ package org.hallock.image;
 
 import java.awt.Dimension;
 
+// This file should be deleted...
+
 /**
  *
  * @author thallock
@@ -20,20 +22,4 @@ public class Settings {
         public static Dimension thumbsSize = new Dimension(50,50);
         
         
-        
-        
-    
-        // slideshow
-        // time and by folder
-        // users to delete
-        // comments
-        // people
-        // favorites
-        // captions
-        // rows/columns
-        // adjust image size
-        // flip rotate
-        // search
-        // multiple languages
-        // video audio
 }
