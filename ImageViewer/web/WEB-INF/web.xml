@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet-mapping>
+        <servlet-name>ConfigurationServlet</servlet-name>
+        <url-pattern>/ConfigurationServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -8,13 +12,9 @@
     <welcome-file-list>
         <welcome-file>welcome.html</welcome-file>
     </welcome-file-list>
-    
-    
     <listener>
         <listener-class>org.hallock.image.DaContextListener</listener-class>
     </listener>
-    
-    
     <servlet>
         <servlet-name>TestServlet</servlet-name>
         <jsp-file>/jsp/folderview.jsp</jsp-file>
@@ -23,14 +23,16 @@
         <servlet-name>TestServlet2</servlet-name>
         <jsp-file>/jsp/imageview.jsp</jsp-file>
     </servlet>
-    
-    
+    <servlet>
+        <servlet-name>ConfigurationServlet</servlet-name>
+        <servlet-class>org.hallock.images.servlet.ConfigurationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TestServlet</servlet-name>
-        <url-pattern>/folders*</url-pattern>   
+        <url-pattern>/folders*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TestServlet2</servlet-name>
-        <url-pattern>/images*</url-pattern>   
+        <url-pattern>/images*</url-pattern>
     </servlet-mapping>
 </web-app>

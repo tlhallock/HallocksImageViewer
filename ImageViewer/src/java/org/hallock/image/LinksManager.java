@@ -5,8 +5,11 @@
  */
 package org.hallock.image;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
-import org.hallock.images.Registry;
+import org.hallock.images.SqlSettings;
 
 /**
  *
@@ -58,6 +61,11 @@ public class LinksManager
             String rootUrl,
             String path)
     {
-        return "http://" + Registry.getRegistry().getSettings().getHostName() + "/" + rootUrl + "/" + path;
+        try {
+            // Very inefficient...
+            return "http://" + SqlSettings.createSettings().getImagesHostname() + "/" + rootUrl + "/" + path;
+        } catch (SQLException ex) {
+            return "bad image";
+        }
     }
 }

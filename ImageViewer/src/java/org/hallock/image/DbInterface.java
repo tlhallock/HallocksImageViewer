@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.LinkedList;
-import org.hallock.images.Registry;
+import org.hallock.images.SqlSettings;
 
 /**
  *
@@ -34,9 +34,9 @@ public class DbInterface
             int pageNumber) throws SQLException {
         FolderResults qresults = new FolderResults();
         
-	String table    = Registry.getRegistry().getSettings().getDbDatabaseName();
-	String user     = Registry.getRegistry().getSettings().getDbUsername();
-	String password = Registry.getRegistry().getSettings().getDbPassword();
+	String table    = SqlSettings.getDbDatabaseName();
+	String user     = SqlSettings.getDbUsername();
+	String password = SqlSettings.getDbPassword();
                 
         // Change this to the apache commons connection pool
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table, user, password);) {
@@ -128,9 +128,9 @@ public class DbInterface
             int pageSize, int pageNumber) throws SQLException {
         FolderResults qresults = new FolderResults();
 
-	String table    = Registry.getRegistry().getSettings().getDbDatabaseName();
-	String user     = Registry.getRegistry().getSettings().getDbUsername();
-	String password = Registry.getRegistry().getSettings().getDbPassword();
+	String table    = SqlSettings.getDbDatabaseName();
+	String user     = SqlSettings.getDbUsername();
+	String password = SqlSettings.getDbPassword();
                 
         // Change this to the apache commons connection pool
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table, user, password);) {
@@ -201,9 +201,9 @@ public class DbInterface
     {
         ImageResults qresults = new ImageResults();
         
-	String table    = Registry.getRegistry().getSettings().getDbDatabaseName();
-	String user     = Registry.getRegistry().getSettings().getDbUsername();
-	String password = Registry.getRegistry().getSettings().getDbPassword();
+	String table    = SqlSettings.getDbDatabaseName();
+	String user     = SqlSettings.getDbUsername();
+	String password = SqlSettings.getDbPassword();
                 
         // Change this to the apache commons connection pool
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table, user, password);) {
@@ -283,6 +283,70 @@ public class DbInterface
         
         
         
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static class ImageLocation
+    {
+        public final String root;
+        public final String path;
+        
+        public ImageLocation(String root, String path)
+        {
+            this.path = path;
+            this.root = root;
+        }
+    }
+    
+    public static ImageLocation getImageLocation(int iid) throws SQLException
+    {
+	String table    = SqlSettings.getDbDatabaseName();
+	String user     = SqlSettings.getDbUsername();
+	String password = SqlSettings.getDbPassword();
+                
+        // Change this to the apache commons connection pool
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table, user, password);)
+        {
+            String query =
+                                  " select ROOTS.ROOT, IMAGES.PATH                                      "
+				+ " from IMAGES 							"
+				+ " 	inner join ROOTS on		    				"
+				+ " 		IMAGES.RID = ROOTS.R_ID 				"
+				+ " where I_ID = ?;               					";
+            try (PreparedStatement updateTotal = conn.prepareStatement(query);) {
+                updateTotal.setInt(1, iid);
+                try (ResultSet results = updateTotal.executeQuery();) {
+                    if (!results.next())
+                        return null;
+                    
+                    int ndx = 1;
+                    String root = results.getString(ndx++);
+                    String path = results.getString(ndx++);
+                    
+                    return new ImageLocation(root, path);
+                }
+            }
+        }
+    }
         
         
         /*

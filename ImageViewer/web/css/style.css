@@ -99,3 +99,40 @@ body {
     font-size: 0;
     line-height: 0
 }
+
+
+
+
+
+
+
+
+
+.settingsgroup {
+        background-color: lightblue;
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+        border-style: outset;
+/*	margin-bottom: 20px; */
+/*	background-color: white; */
+}
+
+.settingsrow {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+/*	margin-bottom: 20px; */
+/*	background-color: white; */
+}
+
+.settingvalue, .settingdescription {
+	display: table-cell;
+/*	border: 1px dotted red; */
+	width: 10%;
+/*	background-color: black; */
+}
+
+input {
+    width: 20%;
+}

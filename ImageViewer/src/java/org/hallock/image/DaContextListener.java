@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import org.hallock.images.Initialization;
+import org.hallock.images.Initialization.InitializationResults;
 import org.hallock.images.InitializationArgs;
-import org.hallock.images.Registry;
-import org.hallock.images.UrlMapper;
 
 /**
  *
@@ -53,23 +53,9 @@ public class DaContextListener implements ServletContextListener {
 			System.exit(3);
 		}
                 
-        InitializationArgs args = new InitializationArgs(new String[] {
-            InitializationArgs.SETTINGS_FILE_ARG, "/var/lib/tomcat8/webapps/ImageViewer/idkWhereThisGoes/settings.props",
-            InitializationArgs.ACTION,            "serve"
-        });
-        try {
-            Registry.initialize(args);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(DaContextListener.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(DaContextListener.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DaContextListener.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(DaContextListener.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                InitializationResults results = Initialization.attemptToInitializeApp();
         
-        log("Context initialized");
+                log("Context initialized");
     }
 
     private void log(String message) {

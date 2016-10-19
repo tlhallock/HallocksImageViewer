@@ -133,8 +133,14 @@ public final class SqlSettings
 	
 	
 	
-	
-	
+	public int getDefaultRows()
+        {
+            return defaultRows.getValue();
+        }
+	public int getDefaultColumns()
+        {
+            return defaultColumns.getValue();
+        }
 	public String getImagesHostname()
 	{
 		return imagesHostname.getValue();

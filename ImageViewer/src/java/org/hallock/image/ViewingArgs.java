@@ -5,11 +5,12 @@
  */
 package org.hallock.image;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import org.hallock.images.Registry;
+import org.hallock.images.SqlSettings;
 
 /**
  *
@@ -112,11 +113,15 @@ public interface ViewingArgs
 
         public FolderArgs(HttpServletRequest request) {
             super(new ImagePath(Helper.getParameter(request, PATH, "t:0/", true)));
+            
+            try
+            {
+            SqlSettings settings = SqlSettings.createSettings();
 
             String rowsStr = Helper.getParameter(request, ROWS,
-                    String.valueOf(Registry.getRegistry().getSettings().getDefaultRows()), true);
+                    String.valueOf(settings.getDefaultRows()), true);
             String colsStr = Helper.getParameter(request, COLS,
-                    String.valueOf(Registry.getRegistry().getSettings().getDefaultColumns()), true);
+                    String.valueOf(settings.getDefaultColumns()), true);
 
             try {
                 rows = Integer.parseInt(rowsStr);
@@ -126,6 +131,7 @@ public interface ViewingArgs
                 cols = Integer.parseInt(colsStr);
             } catch (NumberFormatException ex) {
             }
+            } catch (SQLException ex) { /*TODO: remove this catch...*/ }
         }
 
         protected void dumpRemainingArgs(Map<String, String> map) {

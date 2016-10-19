@@ -8,8 +8,9 @@ package org.hallock.image;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.sql.SQLException;
 import java.util.Map;
-import org.hallock.images.Registry;
+import org.hallock.images.SqlSettings;
 /**
  *
  * @author thallock
@@ -36,15 +37,15 @@ public class Utils {
     public static String urlDecode(String s)
     {
         try {
-            return URLDecoder.decode(s, Registry.getRegistry().getSettings().getEncoding());
-        } catch (UnsupportedEncodingException e) {
+            return URLDecoder.decode(s, SqlSettings.createSettings().getEncoding());
+        } catch (UnsupportedEncodingException | SQLException e) {
             throw new UnsupportedOperationException(e);
         }
     }
     private static String urlEncodeUTF8(String s) {
         try {
-            return URLEncoder.encode(s, Registry.getRegistry().getSettings().getEncoding());
-        } catch (UnsupportedEncodingException e) {
+            return URLEncoder.encode(s, SqlSettings.createSettings().getEncoding());
+        } catch (UnsupportedEncodingException | SQLException e) {
             throw new UnsupportedOperationException(e);
         }
     }

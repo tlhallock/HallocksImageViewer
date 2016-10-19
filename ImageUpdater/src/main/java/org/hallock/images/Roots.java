@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.Set;
 
 public final class Roots
 {
@@ -120,6 +121,11 @@ public final class Roots
 		private HashMap<String, String>	path2Url	= new HashMap<>();
 		
 		private RootsMapper() {}
+                
+                public Set<Entry<String, String>> list()
+                {
+                    return path2Url.entrySet();
+                }
 
 		public void load(Connection conn) throws SQLException
 		{

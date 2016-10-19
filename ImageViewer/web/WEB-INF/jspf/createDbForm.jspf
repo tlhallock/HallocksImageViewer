@@ -1,0 +1,25 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+
+            <div class="settingsgroup">
+                <div class="settingsrow">
+                    <div class="settingdescription">database user: </div>
+                    <div class="settingvalue"><input type="text" name="dbUsername"></div>
+                </div>
+                <div class="settingsrow">
+                    <div class="settingdescription">database password: </div>
+                    <div class="settingvalue"><input type="text" name="dbPassword"></div>
+                </div>
+                <div class="settingsrow">
+                    <div class="settingdescription">database name: </div>
+                    <div class="settingvalue"><input type="text" name="lname"></div>
+                </div>
+            </div>
+
+
+delete database
+
+
+
+
