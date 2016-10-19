@@ -15,7 +15,7 @@ public final class Roots
 	{
 		String table    = SqlSettings.getDbDatabaseName();
 		String user     = SqlSettings.getDbUsername();
-		String password = SqlSettings.getDbUsername();
+		String password = SqlSettings.getDbPassword();
 
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table, user, password);)
 		{
@@ -26,7 +26,7 @@ public final class Roots
 	{
 		String table    = SqlSettings.getDbDatabaseName();
 		String user     = SqlSettings.getDbUsername();
-		String password = SqlSettings.getDbUsername();
+		String password = SqlSettings.getDbPassword();
 
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table, user, password);)
 		{
@@ -92,7 +92,7 @@ public final class Roots
 		
 		String table    = SqlSettings.getDbDatabaseName();
 		String user     = SqlSettings.getDbUsername();
-		String password = SqlSettings.getDbUsername();
+		String password = SqlSettings.getDbPassword();
 
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table, user, password);)
 		{

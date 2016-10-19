@@ -15,7 +15,7 @@ public class DbInitializer
 	{
 		String table    = SqlSettings.getDbDatabaseName();
 		String user     = SqlSettings.getDbUsername();
-		String password = SqlSettings.getDbUsername();
+		String password = SqlSettings.getDbPassword();
 		
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table 
 				+ "?" + "user=" + user + "&password=" + password);)
@@ -81,7 +81,7 @@ public class DbInitializer
 	{
 		String table    = SqlSettings.getDbDatabaseName();
 		String user     = SqlSettings.getDbUsername();
-		String password = SqlSettings.getDbUsername();
+		String password = SqlSettings.getDbPassword();
 		
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table 
 				+ "?" + "user=" + user + "&password=" + password);)
@@ -98,12 +98,12 @@ public class DbInitializer
 	
 	public static void createDatabase() throws SQLException, IOException
 	{
-		executeScript("res/create.sql");
+		executeScript("/create.sql");
 	}
 	
 	public static void destroyDatabase() throws SQLException, IOException
 	{
-		executeScript("res/delete.sql");
+		executeScript("/delete.sql");
 	}
 	
 	
@@ -122,13 +122,14 @@ public class DbInitializer
 
 		String table    = SqlSettings.getDbDatabaseName();
 		String user     = SqlSettings.getDbUsername();
-		String password = SqlSettings.getDbUsername();
+		String password = SqlSettings.getDbPassword();
 		
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/" + table 
 				+ "?" + "user=" + user + "&password=" + password);)
 		{
 			for (String stmt : builder.toString().split(";"))
 			{
+				System.out.println("Executing " + stmt);
 				try (PreparedStatement updateTotal = conn.prepareStatement(stmt + ";");)
 				{	
 					int result = updateTotal.executeUpdate();
@@ -136,6 +137,11 @@ public class DbInitializer
 					{
 						
 					}
+				}
+				catch (SQLException ex)
+				{
+					System.out.println("Error executing statement " + stmt);
+					System.out.println("I wish there were some way to create index if not exists....");
 				}
 			}
 		}

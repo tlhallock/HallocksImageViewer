@@ -40,7 +40,7 @@ public class Initialization
 		
 		try
 		{
-			SqlSettings.loadDefaultDbInfo("res/dbinfo.props");
+			SqlSettings.loadDefaultDbInfo("/dbinfo.props");
 		}
 		catch (IOException e)
 		{
