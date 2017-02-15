@@ -17,7 +17,7 @@ public class Preferences
 	public Preferences() {
 		renamePattern = "";
 //		setExtensions(".PNG, .png, .jpg, .JPG, .jpeg, .JPEG");
-		setExtensions(".jpg, .JPG, .jpeg, .JPEG");
+		setExtensions(".jpg, .JPG, .jpeg, .JPEG, .png, .PNG");
 	}
 
 
