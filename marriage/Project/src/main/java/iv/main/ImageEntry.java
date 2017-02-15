@@ -41,16 +41,16 @@ public class ImageEntry implements Comparable<ImageEntry>
 
 	public ImageEntry(JsonObject jsonObject)
 	{
-		rootName			=           jsonObject.getString(         "rootName		".trim());		
+		rootName		=           jsonObject.getString(         "rootName		".trim());		
 		relativePath		=           jsonObject.getString(         "relativePath		".trim());		
-		description			=           jsonObject.getString(         "description		".trim());		
-		location			=           jsonObject.getString(         "location		".trim());
-		checksum			=           jsonObject.getString(         "checksum		".trim());
+		description		=           jsonObject.getString(         "description		".trim());		
+		location		=           jsonObject.getString(         "location		".trim());
+		checksum		=           jsonObject.getString(         "checksum		".trim());
 		imageTakenTime		=           jsonObject.getJsonNumber(     "imageTakenTime	".trim()).longValue();	
 		lastModifiedTime	=           jsonObject.getJsonNumber(     "lastModifiedTime	".trim()).longValue();
-		fileSize			=           jsonObject.getJsonNumber(     "fileSize		".trim()).longValue();
+		fileSize		=           jsonObject.getJsonNumber(     "fileSize		".trim()).longValue();
 		
-		people				=			jsonObject.getString(		  "people");
+		people			=		jsonObject.getString(	  "people");
 	}
 	
 	public ImageEntry(ImageEntry oldFile)
@@ -75,6 +75,7 @@ public class ImageEntry implements Comparable<ImageEntry>
 		checksum = oldFile.checksum;
 		imageTakenTime = oldFile.imageTakenTime;
 		fileSize = oldFile.fileSize;
+		people = oldFile.people;
 
 		lastModifiedTime = ImageInfo.getLastModifiedTime(newPath);
 	}
@@ -241,6 +242,7 @@ public class ImageEntry implements Comparable<ImageEntry>
 		texStream.print("\\textbf{Description}: " + le(getDescription())                          + "\n");
 		texStream.print("\n"                                                                      + "\n");
 		texStream.print("\\textbf{Time}: " + le(getImageTime())                                   + "\n");
+		texStream.print("\n"                                                                      + "\n");
 		texStream.print("\\textbf{People}: " + le(getPeople())                                    + "\n");
 		texStream.print("\n"                                                                      + "\n");
 		texStream.print("\\newpage"                                                               + "\n");
