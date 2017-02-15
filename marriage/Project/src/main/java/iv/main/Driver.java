@@ -10,8 +10,10 @@ public class Driver {
 		mainApplicationFrame.setVisible(true);
 		
 //		Workspace parse = Workspace.importFromPdfFolder(new File("/home/thallock/Documents/marriage/imagetest/exported"), Logger.EMPTY_LOGGER);
-//		Workspace parse = Workspace.parse(new File("/home/thallock/test.json"), Logger.EMPTY_LOGGER);
-//		mainApplicationFrame.setWorkspace(parse);
+		
+		String currentWorkspace = "/home/thallock/Documents/marriage/imagetest/exported/workspace.json"; 
+		Workspace parse = Workspace.parse(new File(currentWorkspace), Logger.EMPTY_LOGGER);
+		mainApplicationFrame.setWorkspace(parse, currentWorkspace);
 		
 		
 //		mainApplicationFrame.exportToPdf(new File("/home/thallock/test"));

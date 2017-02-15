@@ -98,7 +98,7 @@ public class MainApplicationFrame extends javax.swing.JFrame implements KeyListe
 		resetView();
 	}
 
-	void setWorkspace(Workspace parse)
+	void setWorkspace(Workspace parse, String file)
 	{
 		stopperLock.lock();
 		try
@@ -106,6 +106,8 @@ public class MainApplicationFrame extends javax.swing.JFrame implements KeyListe
 			if (stopper != null)
 				stopper.requestStop();
 			openWorkspaceLocationButton.setEnabled(false);
+			if (file != null)
+				this.lastWorkspaceLocation = file;
 
 			// jTextField1.setText(parse.location.path.toString());
 			// recurseOption.setSelected(parse.location.recurse);
@@ -306,7 +308,7 @@ public class MainApplicationFrame extends javax.swing.JFrame implements KeyListe
 		try
 		{
 			Workspace.save(createWorkspace(), new File(lastWorkspaceLocation));
-			logger.log("Workspace saved.");
+			logger.log("Workspace saved to " + lastWorkspaceLocation);
 		}
 		catch (IOException e)
 		{
@@ -404,7 +406,7 @@ public class MainApplicationFrame extends javax.swing.JFrame implements KeyListe
 
 	private void createNew()
 	{
-		setWorkspace(new Workspace());
+		setWorkspace(new Workspace(), null);
 	}
 	
 	private void openAWorkspace()
@@ -428,7 +430,7 @@ public class MainApplicationFrame extends javax.swing.JFrame implements KeyListe
 			logger.log("Unable to read " + choose.getSelectedFile());
 			return;
 		}
-		setWorkspace(parse);
+		setWorkspace(parse, null);
 	}
 	
 	
