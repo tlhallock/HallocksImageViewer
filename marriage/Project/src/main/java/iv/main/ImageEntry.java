@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 
 public class ImageEntry implements Comparable<ImageEntry>
 {
+	private static final String UNKNOWN_TIME = "Unknown: this is either not a jpeg image or it has no exif data";
 	private String  rootName		;
 	private String	relativePath	;
 	private String	description		;
@@ -135,9 +136,9 @@ public class ImageEntry implements Comparable<ImageEntry>
 		if (imageTakenTime == 0)
 			return "Not computed.";
 		if (imageTakenTime < 0)
-			return "Unknown: this is either not a jpeg image or it has no exif data";
+			return UNKNOWN_TIME;
 					
-		return new Date(imageTakenTime).toString();
+		return new Date(imageTakenTime).toString(); // should probably format this so it doesn't depend on our time zone
 	}
 
 	public String getChecksum()
@@ -232,6 +233,7 @@ public class ImageEntry implements Comparable<ImageEntry>
 
 	public void writeLatex(PrintStream texStream, Path path)
 	{
+		String imageTime = getImageTime();
 		texStream.print("\\section{}"                                                             + "\n");
 		texStream.print("\\includegraphics[width=\\textwidth]{images/" +    relativePath  + "}"   + "\n");
 		texStream.print("\n"                                                                      + "\n");
@@ -241,8 +243,9 @@ public class ImageEntry implements Comparable<ImageEntry>
 		texStream.print("\n"                                                                      + "\n");
 		texStream.print("\\textbf{Description}: " + le(getDescription())                          + "\n");
 		texStream.print("\n"                                                                      + "\n");
-		texStream.print("\\textbf{Time}: " + le(getImageTime())                                   + "\n");
-		texStream.print("\n"                                                                      + "\n");
+		if (!imageTime.equals(UNKNOWN_TIME)) {
+		texStream.print("\\textbf{Time}: " + le(imageTime)                                        + "\n");
+		texStream.print("\n"                                                                      + "\n"); }
 		texStream.print("\\textbf{People}: " + le(getPeople())                                    + "\n");
 		texStream.print("\n"                                                                      + "\n");
 		texStream.print("\\newpage"                                                               + "\n");
