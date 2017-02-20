@@ -260,9 +260,9 @@ public class ImageEntry implements Comparable<ImageEntry>
 			char c = string.charAt(i);
 			if (badChars.indexOf(c) >= 0)
 				builder.append('\\');
-			if (c == '.')
-				if (i > 0 && string.charAt(i-1) >= '0' && string.charAt(i-1) <= '9')
-					builder.append('\\');
+//			if (c == '.')
+//				if (i > 0 && string.charAt(i-1) >= '0' && string.charAt(i-1) <= '9')
+//					builder.append('\\');
 			builder.append(c);
 		}
 		return builder.toString();
