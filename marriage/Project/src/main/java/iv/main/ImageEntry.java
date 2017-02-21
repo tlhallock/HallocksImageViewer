@@ -255,7 +255,7 @@ public class ImageEntry implements Comparable<ImageEntry>
 		texStream.print("\\newpage"                                                               + "\n");
 	}
 	
-	private static final String badChars = "$\\_";
+	private static final String badChars = "$\\_&";
 	private static String le(String string)
 	{
 		StringBuilder builder = new StringBuilder(string.length());
