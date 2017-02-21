@@ -1,5 +1,6 @@
 package iv.main;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,6 +11,8 @@ import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 import org.apache.commons.imaging.ImageReadException;
 import org.apache.commons.imaging.Imaging;
@@ -71,6 +74,14 @@ public class ImageInfo
 		for (byte b : digest)
 			sb.append(String.format("%02x", b));
 		return sb.toString();
+	}
+	
+	public static boolean isVertical (Path path) throws IOException
+	{
+		BufferedImage img = ImageIO.read(new File(path.toAbsolutePath().toString()));
+		int width          = img.getWidth();
+		int height         = img.getHeight();
+		return height > width;
 	}
 
 	

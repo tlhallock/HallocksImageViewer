@@ -105,7 +105,7 @@ public class Workspace
 				workspace.preferences, workspace.locationHistory);
 
 		save(exportedWorkspace, path.resolve("workspace.json").toFile());
-		exportedWorkspace.images.writeLatex(path.resolve("workspace_").toString(), 50, logger);
+		exportedWorkspace.images.writeLatex(path.resolve("workspace_").toString(), 60, logger);
 	}
 	
 	public static Workspace importFromPdfFolder(File pdfFolder, Logger logger) throws IOException
