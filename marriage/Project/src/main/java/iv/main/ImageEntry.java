@@ -7,7 +7,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import javax.json.JsonObject;
 
@@ -18,8 +20,10 @@ import com.fasterxml.jackson.core.JsonGenerator;
 public class ImageEntry implements Comparable<ImageEntry>
 {
 	private static final String UNKNOWN_TIME = "Unknown: this is either not a jpeg image or it has no exif data";
+	private static final SimpleDateFormat format = createSimpleDateFormat();
+	
 	private String  rootName		;
-	private String	relativePath	;
+	private String	relativePath		;
 	private String	description		;
 	private String	location		;
 	private String	people			;
@@ -138,7 +142,7 @@ public class ImageEntry implements Comparable<ImageEntry>
 		if (imageTakenTime < 0)
 			return UNKNOWN_TIME;
 					
-		return new Date(imageTakenTime).toString(); // should probably format this so it doesn't depend on our time zone
+		return format.format(new Date(imageTakenTime)).toString();
 	}
 
 	public String getChecksum()
@@ -270,5 +274,16 @@ public class ImageEntry implements Comparable<ImageEntry>
 
 	public long getComparable() {
 		return imageTakenTime;
+	}
+	
+	
+	
+	
+
+	private static SimpleDateFormat createSimpleDateFormat()
+	{
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a 'GMT'");
+		f.setTimeZone(TimeZone.getTimeZone("GMT"));
+		return f;
 	}
 }
