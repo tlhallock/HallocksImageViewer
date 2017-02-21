@@ -144,8 +144,8 @@ public class ImageSet
 			try (PrintStream texStream = new PrintStream(name))
 			{
 				texStream.print("\\documentclass{article}"                                           + "\n");
-				texStream.print("\\title{Trever and Zeng's Photo Album Part " + outerCount + "}"     + "\n");
-				texStream.print("\\author{Trever and Zeng}"                                          + "\n");
+				texStream.print("\\title{Trever and Yu's Photo Album}"     + "\n");
+				texStream.print("\\author{Trever and Yu}"                                          + "\n");
 				texStream.print("\\usepackage{graphicx}"                                             + "\n");
 				texStream.print("\\begin{document}"                                                  + "\n");
 				texStream.print("\\maketitle"                                                        + "\n");

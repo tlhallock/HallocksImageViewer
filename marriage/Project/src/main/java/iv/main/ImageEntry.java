@@ -117,6 +117,7 @@ public class ImageEntry implements Comparable<ImageEntry>
 		lastModifiedTime = ImageInfo.getLastModifiedTime(path);
 		checksum = ImageInfo.checksumFile(path);
 		imageTakenTime = ImageInfo.getImageTakenTime(path);
+		
 	}
 
 	@Override
@@ -180,7 +181,7 @@ public class ImageEntry implements Comparable<ImageEntry>
 //		return set.resolve(rootName).resolve(relativePath);
 //	}
 
-//	public BufferedImage getImage() throws IOException
+//	public BufferedImage getImage(Path path) throws IOException
 //	{
 //		try (InputStream input = Files.newInputStream(getOriginalPath());)
 //		{
@@ -233,7 +234,19 @@ public class ImageEntry implements Comparable<ImageEntry>
 	public void writeLatex(PrintStream texStream, Path path)
 	{
 		texStream.print("\\section{}"                                                             + "\n");
-		texStream.print("\\includegraphics[width=\\textwidth]{images/" +    relativePath  + "}"   + "\n");
+		try {
+			if(ImageInfo.isVertical(path)){
+				texStream.print("\\begin{figure}[h]\n");
+				texStream.print("\\includegraphics[width=0.5\\textwidth]{images/" +    relativePath  + "}"   + "\n");
+				texStream.print("\\centering\n");
+				texStream.print("\\end{figure}\n");
+			}else{
+				texStream.print("\\includegraphics[width=\\textwidth]{images/" +    relativePath  + "}"   + "\n");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		texStream.print("\n"                                                                      + "\n");
 		texStream.print("\\textbf{Image}: " + le(getImageFilename())                              + "\n");
 		texStream.print("\n"                                                                      + "\n");
