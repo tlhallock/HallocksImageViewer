@@ -149,6 +149,7 @@ public class ImageSet
 				texStream.print("\\usepackage{graphicx}"                                             + "\n");
 				texStream.print("\\begin{document}"                                                  + "\n");
 				texStream.print("\\maketitle"                                                        + "\n");
+				texStream.print("\\pagenumbering{gobble}"                                            + "\n");
 				texStream.print("\\newpage"                                                          + "\n");
 				
 				for (int innerCount = 0; index < images.size() && innerCount < maxImages; innerCount++)
