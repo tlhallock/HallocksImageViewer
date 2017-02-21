@@ -860,11 +860,13 @@ public class MainApplicationFrame extends javax.swing.JFrame implements KeyListe
     }//GEN-LAST:event_saveCurrentButtonActionPerformed
 
 	private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+		save();
         next();
     }//GEN-LAST:event_nextButtonActionPerformed
 
 
 	private void previousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousButtonActionPerformed
+		save();
         previous();
     }//GEN-LAST:event_previousButtonActionPerformed
 

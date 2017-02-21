@@ -11,7 +11,7 @@ public class Driver {
 		
 //		Workspace parse = Workspace.importFromPdfFolder(new File("/home/thallock/Documents/marriage/imagetest/exported"), Logger.EMPTY_LOGGER);
 		
-		String currentWorkspace = "/home/thallock/Documents/marriage/imagetest/exported/workspace.json"; 
+		String currentWorkspace = "C:\\cygwin64\\home\\zy\\export\\export.2\\workspace.json"; 
 		Workspace parse = Workspace.parse(new File(currentWorkspace), Logger.EMPTY_LOGGER);
 		mainApplicationFrame.setWorkspace(parse, currentWorkspace);
 		
